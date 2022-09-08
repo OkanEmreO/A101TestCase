@@ -14,19 +14,17 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
-public class MyStepdefs {
+public class MyStepdefs extends GWD {
     A101Website market = new A101Website();
-    Actions actions = new Actions(GWD.getDriver());
+
     Robot rbt = new Robot();
-
-
 
 
     public MyStepdefs() throws AWTException {
     }
 
     @Given("Go to Website")
-    public void goToWebsite()  {
+    public void goToWebsite() {
 
 
         GWD.getDriver().get("https://www.a101.com.tr/");
@@ -35,38 +33,23 @@ public class MyStepdefs {
 
         GWD.getDriver().manage().deleteAllCookies();
 
-        System.out.println(GWD.getDriver().switchTo().alert().getText());
+//        GWD.getDriver().switchTo().alert().accept(); alert no such element
 
         market.findAndClick("kabulet");
     }
 
     @When("Search Giyim Click the Giyim tab")
-    public void moveToTheGiyimAksesuarTabAndClickTheDizÇorapTab() throws InterruptedException {
+    public void moveToTheGiyimAksesuarTabAndClickTheDizÇorapTab() {
 
 
+        market.findAndSend("searchArea", "giyim");
 
-        market.findAndSend("searchArea","giyim");
         market.findAndClick("giyimclick");
-        TimeUnit.SECONDS.sleep(2);
+        Bekle(2000);
         market.findAndClick("kadinicgiyim");
-        TimeUnit.SECONDS.sleep(2);
+        Bekle(2000);
         market.findAndClick("dizaltiCorap");
-        TimeUnit.SECONDS.sleep(2);
-
-
-//       Action aksiyonlar= actions.moveToElement(market.giyim).build();
-//
-//       aksiyonlar.perform();
-//
-//       TimeUnit.SECONDS.sleep(3);
-//
-//       actions.moveToElement(market.dizalticorap).build().perform();
-//
-//       TimeUnit.SECONDS.sleep(3);
-//
-//       Action aksiyonlar2=actions.moveToElement(market.dizalticorap).click().build();
-//
-//       aksiyonlar2.perform();
+        Bekle(2000);
 
     }
 
@@ -75,55 +58,57 @@ public class MyStepdefs {
 
         market.findAndClick("siyahcorap");
 
-        market.findAndContainsText("siyarRenk","Penti Kadın 50 Denye Pantolon Çorabı Siyah");
+        market.findAndContainsText("siyarRenk", "Penti Kadın 50 Denye Pantolon Çorabı Siyah");
     }
 
     @And("Click Sepete Ekle and Sepeti Gor")
     public void clickSepeteEkle() {
         market.findAndClick("sepeteEkle");
+
         market.findAndClick("sepetiGoruntele");
+
         market.findAndClick("sepetiOnayla");
+
         market.findAndClick("uyeOlmadan");
 
-        market.findAndSend("email","okan@gmail.com");
+        market.findAndSend("email", "okan@gmail.com");
 
         market.findAndClick("devamEt");
-
 
     }
 
     @Then("Enter the User Data and go to payment page")
-    public void enterTheUserData() throws InterruptedException {
+    public void enterTheUserData(){
         market.findAndClick("yeniAdres");
 
-        market.findAndSend("adresBasligi","Ev Adresi");
-        market.findAndSend("firstName","Ozan");
-        market.findAndSend("lastName","Karabıyık");
-        market.findAndSend("phoneNumber","5554445544");
-        TimeUnit.SECONDS.sleep(2);
+        market.findAndSend("adresBasligi", "Ev Adresi");
+        market.findAndSend("firstName", "Mehmet");
+        market.findAndSend("lastName", "Uyumlu");
+        market.findAndSend("phoneNumber", "5555555555");
+        Bekle(2000);
         market.findAndClick("il");
-        TimeUnit.SECONDS.sleep(2);
+        Bekle(2000);
         market.findAndClick("ilce");
-        TimeUnit.SECONDS.sleep(2);
+        Bekle(2000);
         market.findAndClick("mahalle");
-        TimeUnit.SECONDS.sleep(2);
-        market.findAndSend("adres","536 Sokak, Yaz Apartmanı, NO:34 Daire:38");
-        market.findAndSend("postaKodu","36200");
+        Bekle(2000);
+        market.findAndSend("adres", "555 Sokak, Yaz Apartmanı, NO:36 Daire:38");
+        market.findAndSend("postaKodu", "36300");
         market.findAndClick("kaydet");
-        TimeUnit.SECONDS.sleep(2);
+        Bekle(2000);
 
         market.findAndClick("kaydetveDevam");
 
-        market.findAndSend("adSoyad","Yağmur Dereli");
-        TimeUnit.SECONDS.sleep(2);
-        market.findAndSend("kartNo","5555444433332222");
-        TimeUnit.SECONDS.sleep(2);
+        market.findAndSend("adSoyad", "Yağmur Dereli");
+        Bekle(2000);
+        market.findAndSend("kartNo", "5555444433332222");
+        Bekle(2000);
         market.findAndClick("monthDateCard");
-        TimeUnit.SECONDS.sleep(2);
+        Bekle(2000);
         market.findAndClick("yearDateCard");
-        TimeUnit.SECONDS.sleep(2);
-        market.findAndSend("cvvCard","555");
-        TimeUnit.SECONDS.sleep(2);
+        Bekle(2000);
+        market.findAndSend("cvvCard", "555");
+        Bekle(2000);
         rbt.keyPress(KeyEvent.VK_TAB);
         rbt.keyRelease(KeyEvent.VK_TAB);
         rbt.keyPress(KeyEvent.VK_TAB);
@@ -131,13 +116,17 @@ public class MyStepdefs {
         rbt.keyPress(KeyEvent.VK_SPACE);
         rbt.keyRelease(KeyEvent.VK_SPACE);
         market.findAndClick("siparisOnay");
-        TimeUnit.SECONDS.sleep(2);
-
+        Bekle(2000);
     }
 
     @And("User should be display succes or not")
     public void userShouldBeDisplaySuccesOrNot() {
 
-        market.findAndContainsText("kartHatasi","Kart bilgilerinizi kontrol ediniz.");
+        market.findAndContainsText("kartHatasi", "Kart bilgilerinizi kontrol ediniz.");
+    }
+
+    @And("Close the website")
+    public void closeTheWebsite() {
+        quitDriver();
     }
 }

@@ -14,29 +14,17 @@ import java.util.logging.Logger;
 public class GWD {
     public static WebDriver driver;
 
-    /**
-     *  Interview Sorusu
-     *              Singleton driver nedir?
-     *      Bütün projede aynı ve tek bir driverın kullanılmasıdır.
-     */
-
     public static WebDriver getDriver() {
 
         if (driver == null) {
-
-            // extend report türkçe bilg çalışmaması sebebiyle kondu
-            Locale.setDefault(new Locale("EN"));
-            System.setProperty("user.language", "EN");
-
             Logger.getLogger("").setLevel(Level.SEVERE);
             System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "Error");
             System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
 
-
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
 
-////             firefox
+//             firefox
 //           WebDriverManager.firefoxdriver().setup();
 //           driver=new FirefoxDriver();
         }

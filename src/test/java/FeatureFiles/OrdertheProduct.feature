@@ -7,6 +7,7 @@ Feature: A101 website functionality
     And Click Sepete Ekle and Sepeti Gor
     Then Enter the User Data and go to payment page
     And User should be display succes or not
+    And Close the website
 
 
 
