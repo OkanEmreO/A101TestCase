@@ -11,15 +11,6 @@ public class A101Website extends Parent{
         PageFactory.initElements(GWD.getDriver(),this);
     }
 
-    @FindBy(xpath = "(//a[@href='/giyim-aksesuar/'])[1]")
-    public WebElement giyim;
-
-    @FindBy(xpath = "//li/a[@href='/giyim-aksesuar/dizalti-corap/']")
-    public WebElement dizalticorap;
-
-    @FindBy(xpath = "//span[text()='GİYİM & AKSESUAR ']")
-    private WebElement giyimclick;
-
     @FindBy(xpath = "(//input[@name='search_text'])[1]")
     private WebElement searchArea;
 
@@ -55,24 +46,21 @@ public class A101Website extends Parent{
 
     @FindBy(xpath = "//button[@class='button block green']")
     private WebElement devamEt;
+
     @FindBy(xpath = "(//a[@title='Yeni adres oluştur'])[1]")
     private WebElement yeniAdres;
 
     @FindBy(xpath = "//input[@name='title']")
     private WebElement adresBasligi;
 
-
     @FindBy(name = "first_name")
     private WebElement firstName;
-
 
     @FindBy(name = "last_name")
     private WebElement lastName;
 
-
     @FindBy(name = "phone_number")
     private WebElement phoneNumber;
-
 
     @FindBy(css = "option[value='40']")
     private WebElement il;
@@ -122,7 +110,6 @@ public class A101Website extends Parent{
     private WebElement kartHatasi;
 
 
-
     WebElement myElement;
 
 
@@ -130,9 +117,6 @@ public class A101Website extends Parent{
 
         switch (strElement){
             case "kabulet" : myElement=kabulet;break;
-            case "giyim" : myElement = giyim; break;
-            case "dizalticorap" : myElement = dizalticorap; break;
-            case "giyimclick": myElement=giyimclick; break;
             case "kadinicgiyim": myElement=kadinicgiyim; break;
             case "dizaltiCorap": myElement=dizaltiCorap; break;
             case "sepeteEkle" : myElement=sepeteEkle;break;
@@ -165,14 +149,11 @@ public class A101Website extends Parent{
             case "firstName": myElement=firstName;break;
             case "lastName": myElement=lastName;break;
             case "phoneNumber": myElement=phoneNumber;break;
-
             case "adres": myElement=adres;break;
             case "postaKodu": myElement=postaKodu;break;
             case "adSoyad": myElement=adSoyad;break;
             case "kartNo": myElement=kartNo;break;
             case "cvvCard": myElement=cvvCard;break;
-
-
 
         }
         sendKeysFunction(myElement,value);
