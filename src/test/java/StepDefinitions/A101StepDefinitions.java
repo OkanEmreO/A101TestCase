@@ -81,8 +81,8 @@ public class A101StepDefinitions extends GWD {
         market.findAndClick("yeniAdres");
 
         market.findAndSend("adresBasligi", "Ev Adresi");
-        market.findAndSend("firstName", "sdgsdg");
-        market.findAndSend("lastName", "dsgdg");
+        market.findAndSend("firstName", "Levent");
+        market.findAndSend("lastName", "Uyumlu");
         market.findAndSend("phoneNumber", "5555555555");
         Bekleme(1);
         market.findAndClick("il");
