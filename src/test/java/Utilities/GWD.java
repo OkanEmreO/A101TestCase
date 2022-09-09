@@ -18,11 +18,6 @@ public class GWD {
     public static WebDriver getDriver() {
 
         if (driver == null) {
-
-            // extend report türkçe bilg çalışmaması sebebiyle kondu
-            Locale.setDefault(new Locale("EN"));
-            System.setProperty("user.language", "EN");
-
             Logger.getLogger("").setLevel(Level.SEVERE);
             System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "Error");
             System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
