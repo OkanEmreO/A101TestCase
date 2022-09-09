@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,9 +18,15 @@ public class GWD {
     public static WebDriver getDriver() {
 
         if (driver == null) {
+
+            // extend report türkçe bilg çalışmaması sebebiyle kondu
+            Locale.setDefault(new Locale("EN"));
+            System.setProperty("user.language", "EN");
+
             Logger.getLogger("").setLevel(Level.SEVERE);
             System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "Error");
             System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+
 
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
@@ -51,6 +58,10 @@ public class GWD {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void Bekleme(int saniye) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(saniye);
     }
 
 

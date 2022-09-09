@@ -14,6 +14,12 @@ public class A101Website extends Parent{
     @FindBy(xpath = "(//input[@name='search_text'])[1]")
     private WebElement searchArea;
 
+    @FindBy(xpath = "//a[@data-id='1555']/span")
+    private  WebElement giyimclick;
+
+    @FindBy(xpath = "/html/body/section/header/div/div[2]/div[5]/span/a/em")
+    public WebElement closebutton;
+
     @FindBy(xpath = "//button[text()='Kabul Et']")
     private WebElement kabulet;
 
@@ -135,6 +141,8 @@ public class A101Website extends Parent{
             case "yearDateCard": myElement=yearDateCard;break;
 //            case "onKosulOnay": myElement=onKosulOnay;break;
             case "siparisOnay": myElement=siparisOnay;break;
+            case "closebutton": myElement=closebutton;break;
+            case "giyimclick": myElement=giyimclick;break;
 
         }
         clickFunction(myElement);

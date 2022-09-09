@@ -8,19 +8,18 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.concurrent.TimeUnit;
 
-public class MyStepdefs extends GWD {
+public class A101StepDefinitions extends GWD {
     A101Website market = new A101Website();
 
+    Actions actions = new Actions(getDriver());
     Robot rbt = new Robot();
 
 
-    public MyStepdefs() throws AWTException {
+    public A101StepDefinitions() throws AWTException {
     }
 
     @Given("Go to Website")
@@ -33,23 +32,23 @@ public class MyStepdefs extends GWD {
 
         GWD.getDriver().manage().deleteAllCookies();
 
-//        GWD.getDriver().switchTo().alert().accept(); alert no such element
-
         market.findAndClick("kabulet");
+
+
     }
 
     @When("Search Giyim Click the Giyim tab")
-    public void moveToTheGiyimAksesuarTabAndClickTheDizÇorapTab() {
+    public void moveToTheGiyimAksesuarTabAndClickTheDizÇorapTab() throws InterruptedException {
 
 
         market.findAndSend("searchArea", "giyim");
 
         market.findAndClick("giyimclick");
-        Bekle(2000);
+        Bekleme(1);
         market.findAndClick("kadinicgiyim");
-        Bekle(2000);
+        Bekleme(1);
         market.findAndClick("dizaltiCorap");
-        Bekle(2000);
+        Bekleme(1);
 
     }
 
@@ -78,37 +77,37 @@ public class MyStepdefs extends GWD {
     }
 
     @Then("Enter the User Data and go to payment page")
-    public void enterTheUserData(){
+    public void enterTheUserData() throws InterruptedException {
         market.findAndClick("yeniAdres");
 
         market.findAndSend("adresBasligi", "Ev Adresi");
-        market.findAndSend("firstName", "Mehmet");
-        market.findAndSend("lastName", "Uyumlu");
+        market.findAndSend("firstName", "sdgsdg");
+        market.findAndSend("lastName", "dsgdg");
         market.findAndSend("phoneNumber", "5555555555");
-        Bekle(2000);
+        Bekleme(1);
         market.findAndClick("il");
-        Bekle(2000);
+        Bekleme(1);
         market.findAndClick("ilce");
-        Bekle(2000);
+        Bekleme(1);
         market.findAndClick("mahalle");
-        Bekle(2000);
+        Bekleme(1);
         market.findAndSend("adres", "555 Sokak, Yaz Apartmanı, NO:36 Daire:38");
         market.findAndSend("postaKodu", "36300");
         market.findAndClick("kaydet");
-        Bekle(2000);
+        Bekleme(2);
 
         market.findAndClick("kaydetveDevam");
 
         market.findAndSend("adSoyad", "Yağmur Dereli");
-        Bekle(2000);
+        Bekleme(1);
         market.findAndSend("kartNo", "5555444433332222");
-        Bekle(2000);
+        Bekleme(1);
         market.findAndClick("monthDateCard");
-        Bekle(2000);
+        Bekleme(1);
         market.findAndClick("yearDateCard");
-        Bekle(2000);
+        Bekleme(1);
         market.findAndSend("cvvCard", "555");
-        Bekle(2000);
+        Bekleme(1);
         rbt.keyPress(KeyEvent.VK_TAB);
         rbt.keyRelease(KeyEvent.VK_TAB);
         rbt.keyPress(KeyEvent.VK_TAB);
@@ -116,7 +115,7 @@ public class MyStepdefs extends GWD {
         rbt.keyPress(KeyEvent.VK_SPACE);
         rbt.keyRelease(KeyEvent.VK_SPACE);
         market.findAndClick("siparisOnay");
-        Bekle(2000);
+        Bekleme(1);
     }
 
     @And("User should be display succes or not")

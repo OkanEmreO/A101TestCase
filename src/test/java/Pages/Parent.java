@@ -32,7 +32,7 @@ public class Parent {
     public void clickFunction(WebElement element)
     {
         waitUntilClickable(element);
-        scrollToElement(element);
+//        scrollToElement(element);
         element.click();
     }
 
