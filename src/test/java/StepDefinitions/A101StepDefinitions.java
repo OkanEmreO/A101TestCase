@@ -81,8 +81,8 @@ public class A101StepDefinitions extends GWD {
         market.findAndClick("yeniAdres");
 
         market.findAndSend("adresBasligi", "Ev Adresi");
-        market.findAndSend("firstName", "Levent");
-        market.findAndSend("lastName", "Uyumlu");
+        market.findAndSend("firstName", "Ender");
+        market.findAndSend("lastName", "Dürüst");
         market.findAndSend("phoneNumber", "5555555555");
         Bekleme(1);
         market.findAndClick("il");
@@ -91,8 +91,9 @@ public class A101StepDefinitions extends GWD {
         Bekleme(1);
         market.findAndClick("mahalle");
         Bekleme(1);
-        market.findAndSend("adres", "555 Sokak, Yaz Apartmanı, NO:36 Daire:38");
-        market.findAndSend("postaKodu", "36300");
+        market.findAndSend("adres", "566 Sokak, Yaz Apartmanı, NO:86 Daire:48");
+//        market.findAndSend("postaKodu", "36300");
+//        Bekleme(2);
         market.findAndClick("kaydet");
         Bekleme(2);
 
